@@ -6,7 +6,8 @@ from django.shortcuts import render_to_response
 import logging
 
 logger = logging.getLogger(__name__)
-IP = 'http://71.190.160.148:5000'
+# IP = 'http://71.190.160.148:5000'
+IP = 'http://serene-sands-1917.herokuapp.com'
 
 @require_http_methods(["GET"])
 def view(request):
