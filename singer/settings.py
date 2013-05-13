@@ -119,11 +119,9 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.admin',
+    'django.contrib.admindocs',
     'sing',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -157,7 +155,7 @@ LOGGING = {
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] =  dj_database_url.config(default='postgres://nmercer@localhost/singer')
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
