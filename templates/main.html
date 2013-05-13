@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<head>
+	<title>SWEET</title>
+</head>
+
+<body>
+	Hello!<br>
+	{% for song in songs %}
+		<a href="{{ song.url }}">URL</a> - {{ song.length }} Seconds - From: {{ song.phone_number }} <br><br>
+	{% endfor %}
+</body>
+
+</html>

@@ -2,6 +2,7 @@ from sing.models import *
 from django.http import HttpResponse
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render_to_response
 import logging
 
 logger = logging.getLogger(__name__)
@@ -11,12 +12,7 @@ IP = 'http://71.190.160.148:5000'
 def view(request):
 	songs = Songs.objects.all().order_by('-created')
 
-	data = ''
-	for song in songs:
-		data += '<a href="%s">URL</a> - %s Seconds - From: %s <br><br>' % (song.url, song.length, song.phone_number)	
-
-	return HttpResponse(data)
-	# return render_to_response('view.html')
+	return render_to_response('main.html', {'songs': songs})
 
 @csrf_exempt
 @require_http_methods(["POST"])
