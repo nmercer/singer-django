@@ -1,0 +1,219 @@
+/*!
+ * App STYLE v1.0
+ *
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ */
+
+/* Importing libraries */ 
+@import "normalize.css";
+@import "lesshat.less";
+
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+@import url(http://fonts.googleapis.com/css?family=Cherry+Swash:400,700);
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot');
+	src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.woff') format('woff'),
+		url('../fonts/icomoon.ttf') format('truetype'),
+		url('../fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Defining Colors */
+@white: #fff;
+@offwhite: #AAA;
+@offblack: #101010;
+@dark-grey: #666;
+@grey: #888888;
+@light-grey: #d5d5d5;
+@font-green: #8CC73F;
+@green: #8BC442;
+@dark-blue: #171926;
+
+html, body {
+	position: relative;
+	z-index: 1;
+	background: url('../assets/linedpaper.png');
+	font-size: 100%;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+}
+
+.main {
+	height: 100%;
+	width:100%;
+	padding: 0;
+	margin: 0 auto;
+}
+
+header {
+	background-color: @green;
+	width: 100%;
+	text-align: center;
+	padding: 1em 0;
+}
+
+.logo {
+	width: 40px;
+}
+
+.logo-text {
+	background: -webkit-linear-gradient(@offblack, @green);
+	.background-clip(text);
+	-webkit-text-fill-color: transparent;
+	font-size: 2em;
+	font-family: 'Cherry Swash', cursive;
+	font-weight: 400;
+	vertical-align: top;
+	padding-left: 10px;
+}
+
+nav {
+	margin-top: -20px;
+	.navheader {
+		background-color: @dark-blue;
+		color: @white;
+		font-size: 1.8em;
+		font-weight: 300;
+		padding: 0.7em 2em;
+		text-align: left;
+		cursor: pointer;
+	}
+	.navigation {
+		background: @white;
+		max-width: none;
+		list-style: none;
+		margin-top: -20px;
+		ul {
+			width: 100%;
+			display: table;
+			table-layout: fixed;
+			li {
+				float: none;
+				display: table-cell;
+				width: auto;
+				border: 1px solid @grey;
+				a, a:hover {
+				font-size: 1.4em;
+				color: @dark-blue;
+				text-decoration: none;
+				}
+			}
+		}
+	}
+}
+
+
+.hidden {
+	pointer-events:auto;
+	visibility: hidden;
+	background-color: none !important;
+}
+
+.number {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	font-size: 2em;
+	color: @grey;
+	padding: 0 1em;
+}
+
+.duration {
+	color: @green;
+	font-size: 1.5em;
+}
+.date {
+	color: @white;
+	font-size: 1.5em;
+	background-color: @green;
+	.border-radius(4px);
+	padding: .3em .3em;
+	margin-left: 1em;
+}
+
+.label {
+	background-color: @white;
+	position: relative;
+	width: 90%;
+	margin: 1em auto;
+	padding: 1em 0;
+	color: @green;
+	font-size: 2em;
+	text-align: center;
+	.box-shadow(0 0 5px rgba(0,0,0,0.2));
+	&:before, &:after {
+		position: absolute;
+		width: 40%;
+		height: 10px;
+		content: ' ';
+		left: 12px;
+		bottom: 18px;
+		background: transparent;
+		.skew(-5deg);
+		.rotate(-3deg);
+		.box-shadow(0 8px 12px rgba(0,0,0,0.3));
+		z-index: -1;
+	}
+	&:after {
+		left: auto;
+		right: 12px;
+		.skew(5deg);
+		.rotate(3deg);
+		}
+}
+
+.cell {
+	background-color: @white;
+	position: relative;
+	width: 90%;
+	margin: 1em auto;
+	padding: 2em 1em;
+	.box-shadow(0 0 5px rgba(0,0,0,0.2));
+	a, a:hover, a:visited {
+		padding-right: 50px;
+		float: right;
+		text-decoration: none;
+		font-size: 3em;
+		color: @green;
+	}
+}
+
+[data-icon]:after {
+	font-family: 'icomoon';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	html, body {
+		font-size: 80%;
+	}
+	.logo-text {
+		font-size: 2.5em;
+	}
+	.logo {
+		width: 30px;
+	}
+	.label {
+		font-size: 1.8em;
+	}
+	.filter {
+		padding: .9em 2em;
+		font-size: 1.7em;
+	}
+
+}
+

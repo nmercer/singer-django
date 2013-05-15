@@ -1,0 +1,222 @@
+@import "normalize.css";
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+@import url(http://fonts.googleapis.com/css?family=Cherry+Swash:400,700);
+/*!
+ * App STYLE v1.0
+ *
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ */
+/* Importing libraries */@font-face {
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon.eot');
+  src: url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'), url('../fonts/icomoon.woff') format('woff'), url('../fonts/icomoon.ttf') format('truetype'), url('../fonts/icomoon.svg#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Defining Colors */
+html,
+body {
+  position: relative;
+  z-index: 1;
+  background: url('../assets/linedpaper.png');
+  font-size: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+.main {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
+header {
+  background-color: #8bc442;
+  width: 100%;
+  text-align: center;
+  padding: 1em 0;
+}
+.logo {
+  width: 40px;
+}
+.logo-text {
+  background: -webkit-linear-gradient(#101010, #8bc442);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2em;
+  font-family: 'Cherry Swash', cursive;
+  font-weight: 400;
+  vertical-align: top;
+  padding-left: 10px;
+}
+nav {
+  margin-top: -20px;
+}
+nav .navheader {
+  background-color: #171926;
+  color: #ffffff;
+  font-size: 1.8em;
+  font-weight: 300;
+  padding: 0.7em 2em;
+  text-align: left;
+  cursor: pointer;
+}
+nav .navigation {
+  background: #ffffff;
+  max-width: none;
+  list-style: none;
+  margin-top: -20px;
+}
+nav .navigation ul {
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+}
+nav .navigation ul li {
+  float: none;
+  display: table-cell;
+  width: auto;
+  border: 1px solid #888888;
+}
+nav .navigation ul li a,
+nav .navigation ul li a:hover {
+  font-size: 1.4em;
+  color: #171926;
+  text-decoration: none;
+}
+.hidden {
+  pointer-events: auto;
+  visibility: hidden;
+  background-color: none !important;
+}
+.number {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 2em;
+  color: #888888;
+  padding: 0 1em;
+}
+.duration {
+  color: #8bc442;
+  font-size: 1.5em;
+}
+.date {
+  color: #ffffff;
+  font-size: 1.5em;
+  background-color: #8bc442;
+  -webkit-border-radius: 4px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 4px;
+  -moz-background-clip: padding;
+  border-radius: 4px;
+  background-clip: padding-box;
+  padding: .3em .3em;
+  margin-left: 1em;
+}
+.label {
+  background-color: #ffffff;
+  position: relative;
+  width: 90%;
+  margin: 1em auto;
+  padding: 1em 0;
+  color: #8bc442;
+  font-size: 2em;
+  text-align: center;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  color: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.label:before,
+.label:after {
+  position: absolute;
+  width: 40%;
+  height: 10px;
+  content: ' ';
+  left: 12px;
+  bottom: 18px;
+  background: transparent;
+  -webkit-transform: skew(-5deg);
+  -moz-transform: skew(-5deg);
+  -o-transform: skew(-5deg);
+  -ms-transform: skew(-5deg);
+  transform: skew(-5deg);
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  -webkit-box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+  color: 0 8px 12px rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+.label:after {
+  left: auto;
+  right: 12px;
+  -webkit-transform: skew(5deg);
+  -moz-transform: skew(5deg);
+  -o-transform: skew(5deg);
+  -ms-transform: skew(5deg);
+  transform: skew(5deg);
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+}
+.cell {
+  background-color: #ffffff;
+  position: relative;
+  width: 90%;
+  margin: 1em auto;
+  padding: 2em 1em;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  color: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.cell a,
+.cell a:hover,
+.cell a:visited {
+  padding-right: 50px;
+  float: right;
+  text-decoration: none;
+  font-size: 3em;
+  color: #8bc442;
+}
+[data-icon]:after {
+  font-family: 'icomoon';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  html,
+  body {
+    font-size: 80%;
+  }
+  .logo-text {
+    font-size: 2.5em;
+  }
+  .logo {
+    width: 30px;
+  }
+  .label {
+    font-size: 1.8em;
+  }
+  .filter {
+    padding: .9em 2em;
+    font-size: 1.7em;
+  }
+}
