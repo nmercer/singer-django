@@ -1,6 +1,9 @@
 # Django settings for singer project.
 
 import os
+import getpass
+
+USERNAME = getpass.getuser()
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -15,7 +18,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'singer',
-        'USER': 'nmercer',
+        'USER': USERNAME,
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
@@ -151,7 +154,7 @@ LOGGING = {
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config(default='postgres://nmercer@localhost/singer')
+DATABASES['default'] =  dj_database_url.config(default='postgres://%s@localhost/singer' % USERNAME)
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
