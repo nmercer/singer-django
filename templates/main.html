@@ -32,7 +32,7 @@
 		{% for song in songs %}
 
 		<div class="cell">
-			<span class="number">{{ song.phone_number }}</span>
+			<span class="number">({{ song.phone_number|slice:":3" }})xxx-xxxx</span>
 			<span class="duration">{{ song.length }} Secs</span>
 			<span class="date">{{ song.created }}</span>
 			<a data-icon="&#xe002;" href="{{ song.url }}"></a>
