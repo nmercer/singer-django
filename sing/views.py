@@ -19,16 +19,15 @@ def view(request):
 @csrf_exempt
 @require_http_methods(["POST"])
 def callin(request):
+	greeting = 'https://dl.dropboxusercontent.com/u/2094414/Voice0081.mp3'
 	xml = '''
 		<Response>
-			<Gather action="/stepone" finishOnKey="12">
-				<Say>Hello. Thanks for calling stranger.</Say>
-		    	<Say>Press one to record a song.</Say>
-	        	<Say>Press two and listen to a song.</Say>
+			<Gather action="/stepone">
+				<Play loop="10">%s</play>
     		</Gather>
     		<Redirect>%s</Redirect>
 		</Response>
-	      ''' % (IP)
+	      ''' % (greeting ,IP)
 
 	return HttpResponse(xml, mimetype="text/xml")
 
@@ -37,20 +36,23 @@ def callin(request):
 def stepone(request):
 	digits = request.POST.get('Digits')
 
-	if digits == '1':
+	if digits == '*':
+		message = 'https://dl.dropboxusercontent.com/u/2094414/Voice0081.mp3'
 		xml = '''
 			<Response>
-				<Say>Press any key to stop recording.</Say>
+				<Play>%s</play>
 				<Record action="/record" playBeep="true" />
 			</Response>
-			  '''
+			  ''' % (message) #Press any key to stop recording.
 
-	elif digits == '2':
-			xml = '''
-				<Response>
-					<Redirect>%s/play</Redirect>
-				</Response>
-				  ''' % (IP)
+	else:
+		message = 'https://dl.dropboxusercontent.com/u/2094414/Voice0081.mp3'
+		xml = '''
+			<Response>
+				<Play>%s</play>
+				<Redirect>%s/play</Redirect>
+			</Response>
+			  ''' % (IP, message)
 
 	return HttpResponse(xml, mimetype="text/xml")
 
@@ -67,12 +69,14 @@ def record(request):
 	song.length = int(length)
 	song.save()
 
+	message = 'https://dl.dropboxusercontent.com/u/2094414/Voice0081.mp3'
+
 	xml = '''
 		<Response>
-			<Say>Thanks!</Say>
+			<Play>%s</play>
 			<Redirect>%s/callin</Redirect>
 		</Response>
-		  ''' % (IP)
+		  ''' % (IP, message)
 
 	return HttpResponse(xml, mimetype="text/xml")
 
@@ -85,7 +89,9 @@ def play(request):
 
 	xml = '''
 		<Response>
-			<Play>%s</Play>
+			<Gather action="/play">
+				<Play>%s</Play>
+			</Gather>
 			<Redirect>%s/callin</Redirect>
 		</Response>
 		  ''' % (song.url, IP)
