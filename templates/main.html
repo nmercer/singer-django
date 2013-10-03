@@ -26,13 +26,13 @@
 		</nav>
 
 		<div class="label">
-			<span>Call +315.750.5095 to make your own song line!</span>
+			<span>Call +917.746.4210 to make your own song line!</span>
 		</div>
 
 		{% for song in songs %}
 
 		<div class="cell">
-			<span class="number">({{ song.phone_number|slice:":3" }})xxx-xxxx</span>
+			<span class="number">({{ song.phone_number|slice:":5" }})xxx-xxxx</span>
 			<span class="duration">{{ song.length }} Secs</span>
 			<span class="date">{{ song.created }}</span>
 			<a data-icon="&#xe002;" href="{{ song.url }}"></a>
