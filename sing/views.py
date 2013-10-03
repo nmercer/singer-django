@@ -20,10 +20,11 @@ def view(request):
 @require_http_methods(["POST"])
 def callin(request):
 	greeting = 'https://dl.dropboxusercontent.com/u/2094414/Voice0081.mp3'
+
 	xml = '''
 		<Response>
 			<Gather action="/stepone">
-				<Play loop="10">%s</play>
+				<Play loop="10">%s</Play>
     		</Gather>
     		<Redirect>%s</Redirect>
 		</Response>
@@ -40,7 +41,7 @@ def stepone(request):
 		message = 'https://dl.dropboxusercontent.com/u/2094414/Voice0081.mp3'
 		xml = '''
 			<Response>
-				<Play>%s</play>
+				<Play>%s</Play>
 				<Record action="/record" playBeep="true" />
 			</Response>
 			  ''' % (message) #Press any key to stop recording.
@@ -49,7 +50,7 @@ def stepone(request):
 		message = 'https://dl.dropboxusercontent.com/u/2094414/Voice0081.mp3'
 		xml = '''
 			<Response>
-				<Play>%s</play>
+				<Play>%s</Play>
 				<Redirect>%s/play</Redirect>
 			</Response>
 			  ''' % (IP, message)
@@ -73,7 +74,7 @@ def record(request):
 
 	xml = '''
 		<Response>
-			<Play>%s</play>
+			<Play>%s</Play>
 			<Redirect>%s/callin</Redirect>
 		</Response>
 		  ''' % (IP, message)
