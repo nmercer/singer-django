@@ -53,7 +53,7 @@ def stepone(request):
 				<Play>%s</Play>
 				<Redirect>%s/play</Redirect>
 			</Response>
-			  ''' % (IP, message)
+			  ''' % (message, IP)
 
 	return HttpResponse(xml, mimetype="text/xml")
 
@@ -93,6 +93,7 @@ def play(request):
 			<Gather action="/play">
 				<Play>%s</Play>
 			</Gather>
+			<Redirect>%s/callin</Redirect>
 		</Response>
 		  ''' % (song.url, IP)
 
