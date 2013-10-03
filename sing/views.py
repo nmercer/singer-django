@@ -93,7 +93,7 @@ def play(request):
 			<Gather action="/play">
 				<Play>%s</Play>
 			</Gather>
-			<Redirect>%s/callin</Redirect>
+			<Redirect>%s/play</Redirect>
 		</Response>
 		  ''' % (song.url, IP)
 
