@@ -19,7 +19,7 @@ def view(request):
 @csrf_exempt
 @require_http_methods(["POST"])
 def callin(request):
-	greeting = 'https://dl.dropboxusercontent.com/u/2094414/Voice0081.mp3'
+	greeting = 'https://dl.dropboxusercontent.com/u/2094414/Welcome.mp3'
 
 	xml = '''
 		<Response>
@@ -38,7 +38,7 @@ def stepone(request):
 	digits = request.POST.get('Digits')
 
 	if digits == '*':
-		message = 'https://dl.dropboxusercontent.com/u/2094414/Voice0081.mp3'
+		message = 'https://dl.dropboxusercontent.com/u/2094414/Record.mp3'
 		xml = '''
 			<Response>
 				<Play>%s</Play>
@@ -47,7 +47,7 @@ def stepone(request):
 			  ''' % (message) #Press any key to stop recording.
 
 	else:
-		message = 'https://dl.dropboxusercontent.com/u/2094414/Voice0081.mp3'
+		message = 'https://dl.dropboxusercontent.com/u/2094414/ListentoSong.mp3'
 		xml = '''
 			<Response>
 				<Play>%s</Play>
@@ -70,14 +70,14 @@ def record(request):
 	song.length = int(length)
 	song.save()
 
-	message = 'https://dl.dropboxusercontent.com/u/2094414/Voice0081.mp3'
+	message = 'https://dl.dropboxusercontent.com/u/2094414/Thanks.mp3'
 
 	xml = '''
 		<Response>
 			<Play>%s</Play>
 			<Redirect>%s/callin</Redirect>
 		</Response>
-		  ''' % (IP, message)
+		  ''' % (message, IP)
 
 	return HttpResponse(xml, mimetype="text/xml")
 
